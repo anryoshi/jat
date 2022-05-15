@@ -1,0 +1,28 @@
+#! this_is_example_of_metadata{}
+
+#0 This is example of top level node
+Top level body
+
+#0 Having multiple top level nodes is the same as having multiple documents combined in one
+;; This is comment 
+
+#1 First level node
+Body ;;this is inline comment;; is not required
+
+#2 Second level node
+
+#4 If some levels are missed - virtual empty nodes will be added for consistency
+
+#l Example of todo list
+- [ ] Do first thing
+- [ ] Do second thing
+
+#t Example of table
+| column1 | column2 |
+|---------|---------|
+| value1  | value1  |
+
+#`code{lang = c, standard=c11}
+int main() {
+    return 0;
+}

@@ -1,0 +1,9 @@
+.cache
+
+*.swp
+
+/subprojects/*
+!/subprojects/*.wrap
+
+.build*
+

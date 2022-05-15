@@ -1,0 +1,30 @@
+digraph finite_state_machine {
+    rankdir=LR;
+
+    node [shape = point ] begin;
+    node [shape = circle, label = "Free" ] text;
+    node [shape = doublecircle, label = "Block" ] text_block;
+    node [shape = circle, label = "h?" ] pending_structure;
+    node [shape = doublecircle, label = "h0" ] h0;
+    node [shape = doublecircle, label = "h1" ] h1;
+    node [shape = circle, label = "Acc" ] pending_title;
+    node [shape = doublecircle, label = "Title" ] title;
+    node [shape = doublecircle, label = "EOF" ] end;
+    
+    begin -> text;
+    text  -> text         [ label = "[^#\\0]" ];
+    text  -> text_block    [ label = "#" ];
+    text_block -> pending_structure [ ];
+    pending_structure -> h0   [ label = "0" ];
+    pending_structure -> h1   [ label = "1" ];
+    
+    h0 -> pending_title;
+    h1 -> pending_title;
+    
+    pending_title -> pending_title [ label = "[^\\n]" ];
+    
+    pending_title -> title [ label = "\\n" ];
+    title -> text;
+    
+    text -> end  [ label = "\\0" ] ;
+}
